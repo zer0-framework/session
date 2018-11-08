@@ -109,8 +109,8 @@ class SessionAsync implements \ArrayAccess
             $cb($this);
             return;
         }
-        $id = (string)($_COOKIE[$this->config->name] ?? '');
-        if ($id === '') {
+        $id = $_COOKIE[$this->config->name] ?? null;
+        if (!is_string($id)) {
             $cb(false);
             return;
         }

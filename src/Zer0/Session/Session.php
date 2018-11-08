@@ -97,8 +97,8 @@ class Session implements \ArrayAccess
         if ($this->hasStarted) {
             return true;
         }
-        $id = (string)($_COOKIE[$this->config->name] ?? '');
-        if ($id === '') {
+        $id = $_COOKIE[$this->config->name] ?? null;
+        if (!is_string($id)) {
             return false;
         }
         $rawData = $this->storage->read($id);
