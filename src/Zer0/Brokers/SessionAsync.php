@@ -26,7 +26,7 @@ class SessionAsync extends Base
      */
     public function instantiate(ConfigInterface $config): \Zer0\Session\SessionAsync
     {
-        if (isset($_SESSION) && $_SESSION instanceof \Zer0\Session\Session) {
+        if (isset($_SESSION) && $_SESSION instanceof \Zer0\Session\SessionAsync) {
             return $_SESSION;
         }
         return new \Zer0\Session\SessionAsync(
@@ -34,5 +34,15 @@ class SessionAsync extends Base
             $this->app->broker('SessionStorage')->get($config->storageAsync),
             $this->app->broker('HTTP')->get($config->http ?? '')
         );
+    }
+
+    /**
+     * @param string $name
+     * @param bool $caching
+     * @return \Zer0\Session\SessionAsync
+     */
+    public function get(string $name = '', bool $caching = true): \Zer0\Session\SessionAsync
+    {
+        return parent::get($name, $caching);
     }
 }

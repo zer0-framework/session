@@ -30,4 +30,14 @@ class Session extends Base
             $this->app->broker('HTTP')->get($config->http ?? '')
         );
     }
+
+    /**
+     * @param string $name
+     * @param bool $caching
+     * @return \Zer0\Session\Session
+     */
+    public function get(string $name = '', bool $caching = true): \Zer0\Session\Session
+    {
+        return parent::get($name, $caching);
+    }
 }
