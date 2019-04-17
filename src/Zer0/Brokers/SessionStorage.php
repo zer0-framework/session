@@ -14,7 +14,7 @@ class SessionStorage extends Base
      * @param ConfigInterface $config
      * @return \Zer0\Session\Storages\Base
      */
-    public function instantiate(ConfigInterface $config): \Zer0\Session\Storages\Base
+    public function instantiate(ConfigInterface $config)
     {
         $split = explode('\\', \Zer0\Session\Storages\Base::class);
         $split[count($split) - 1] = $config->type;
@@ -27,7 +27,7 @@ class SessionStorage extends Base
      * @param bool $caching
      * @return \Zer0\Session\Storages\Base
      */
-    public function get(string $name = '', bool $caching = true): \Zer0\Session\Storages\Base
+    public function get(string $name = '', bool $caching = true)
     {
         return parent::get($name, $caching);
     }
