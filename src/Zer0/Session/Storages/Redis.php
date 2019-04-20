@@ -33,7 +33,7 @@ class Redis extends Base
      */
     protected function init()
     {
-        $this->redis = $this->app->broker('Redis')->get();
+        $this->redis = $this->app->factory('Redis');
         $this->prefix = $this->config->prefix;
         $this->ttl = $this->config->ttl ?? 60 * 60 * 24 * 31;
     }
