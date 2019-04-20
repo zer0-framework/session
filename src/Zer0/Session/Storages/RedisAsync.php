@@ -33,7 +33,7 @@ class RedisAsync extends BaseAsync
      */
     protected function init()
     {
-        $this->redis = $this->app->broker('RedisAsync')->get();
+        $this->redis = $this->app->factory('RedisAsync');
         $this->prefix = $this->config->prefix;
         $this->ttl = $this->config->ttl ?? 60 * 60 * 24 * 31;
     }

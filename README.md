@@ -6,7 +6,7 @@
 Чтобы стартовать сессию нужно вызвать:
 
 ```php
-$session = $app->broker('Session')->get();
+$session = $app->factory('Session');
 $session->start(); /* или */ $session->startIfExists();
 ```
 
