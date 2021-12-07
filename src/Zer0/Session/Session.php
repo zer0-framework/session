@@ -92,6 +92,15 @@ class Session implements \ArrayAccess
     /**
      * @return bool
      */
+
+    public function hasStarted()
+    {
+        return $this->hasStarted;
+    }
+
+    /**
+     * @return bool
+     */
     public function startIfExists(): bool
     {
         if ($this->hasStarted) {
